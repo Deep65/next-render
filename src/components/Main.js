@@ -1,20 +1,21 @@
 "use client";
 
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Sphere, Environment } from "@react-three/drei";
+import { OrbitControls,  Environment } from "@react-three/drei";
+
+import Guitar  from "../../Guitar_hardware_parts";
 
 const Main = () => {
   return (
     <div className="w-full h-screen bg-black">
-      <Canvas camera={{ position: [0, 0, 5] }}>
+           <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
         <ambientLight intensity={0.5} />
-        <directionalLight position={[2, 2, 2]} />
+        <directionalLight position={[5, 5, 5]} />
         <OrbitControls />
-        <Sphere args={[1, 32, 32]}>
-          <meshStandardMaterial color="blue" />
-        </Sphere>
+        <Guitar />
         <Environment preset="sunset" />
       </Canvas>
+
     </div>
   );
 };
